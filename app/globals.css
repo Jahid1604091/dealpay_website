@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 25px;
+}
+h4 {
+  font-size: 23px;
+}
+
+
+input:focus{
+  outline: none;
+}
+
+/* Hide the number input's arrows */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.auth-top{
+  background: url('/images/auth_top_bg.png') #01D200;
+}
+.btn{
+  @apply font-bold rounded-3xl md:py-6 text-center md:text-2xl
+}
+.btn-secondary{
+  @apply bg-slate-200 text-slate-400 font-bold rounded-3xl md:py-6 text-center md:text-2xl
+
+}
+.btn-block{
+  @apply bg-primary text-white font-bold rounded-3xl md:py-6 text-center md:text-2xl disabled:bg-slate-500 disabled:cursor-wait
+}
+
+.btn-primary{
+  @apply bg-primary hover:bg-primary_dark text-white font-semibold rounded-3xl py-10 text-center w-full sm:max-w-[350px] flex items-center justify-center gap-2 disabled:bg-slate-500 disabled:cursor-wait
+}
+
+/* ---------------------- */
+/* dashboard */
+/* ---------------------- */
+
+.sidebar-menu {
+  @apply relative bg-transparent pl-28 pr-32 py-14 mb-8 transition duration-300 ease-in-out cursor-pointer border-l-4 border-transparent;
+}
+.sidebar-content {
+  @apply sm:text-xl text-lg font-medium text-white;
+}
+.sidebar-menu.active {
+  @apply bg-green-100 border-primary ;
+}
+.sidebar-content.active {
+  @apply text-black;
+}
+.bottom-bar .sidebar-menu {
+  @apply pt-16 pb-6 pl-0 pr-0;
+}
+.bottom-bar .sidebar-menu.active {
+  @apply border-0 border-b-2 border-primary bg-transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar_small {
+    width: 70px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .sidebar_small .logo {
+    @apply hidden;
+  }
+
+  .sidebar_small .logo-container {
+    @apply p-10;
+  }
+
+  .sidebar_small .responsive-bar {
+    @apply p-20;
+  }
+
+  .sidebar_small .responsive-bar span {
+    @apply hidden;
+  }
+
+  .main-content_large {
+    margin-left: 70px !important;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .main-content_large #fixedElement {
+    margin-left: 70px !important;
+    transition: all 0.5s ease-in-out;
+  }
+}
+@media screen and (max-width: 767px) {
+  .sidebar {
+    left: -300px;
+    transition: left 0.5s ease-in-out;
+  }
+
+  .sidebar_small {
+    left: 0;
+    width: 260px;
+    transition: left 0.5s ease-in-out, width 0.5s ease-in-out;
+    z-index: 999;
+    overflow-y: scroll;
+  }
+  .sidebar_small .sidebar-collapse {
+    @apply absolute right-[10px] top-[26px] text-2xl text-white  block;
+  }
+
+  .main-content_large,
+  .main-content_large #fixedElement {
+    margin-left: 0 !important;
+    transition: margin-left 0.5s ease-in-out;
+  }
+}
+
